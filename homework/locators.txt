@@ -5,6 +5,17 @@
 3.
 //div[@class="media media--hero media--primary media--overlay block-link"]/a
 4.
-//div[@id="orb-nav-links"]//li[position()=2 or position()=4 or position()=6 or position()=8]
+//div[@id="orb-nav-links"]//li[position() mod 2 = 0] 
 5.
 //section[contains(@class, "module--header")]/h2[@class="module__title"]/text()
+
+css:
+1. 
+#orb-search-q
+2.
+#orb-nav-links .orb-nav-reeldotcom
+3.
+.media--hero
+4.
+nav :nth-child(2n):not(.orb-nav-hide)
+
