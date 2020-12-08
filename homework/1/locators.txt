@@ -1,0 +1,14 @@
+1. 
+//div/input[@id="orb-search-q"]
+2.
+//div[@id="orb-nav-links"]/ul/li[@class="orb-nav-reeldotcom"]/a
+3.
+//div[@class="media media--hero media--primary media--overlay block-link"]/a
+4.
+//div[@id="orb-nav-links"]//li[position()=2 or position()=4 or position()=6 or position()=8]
+
+5.
+//section[contains(@class, "module--header")]/h2[@class="module__title"]/text()
+
+
+
