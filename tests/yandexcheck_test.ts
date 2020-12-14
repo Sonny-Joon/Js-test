@@ -55,7 +55,50 @@ describe('Yandex1', () => {
   // кликаем по кнопке меню
   await more_button.click();
 
+  //
+  var content_1 = element(by.css(".services-new__more-popup-content"));
+content_1.getText().then(cont => { console.log("text:", cont); })
+
+      // кликаем по кнопке закрытия
+      await geolink_button.click();
+        
+      // ждем появление этого элемента (события presenceOf)
+      await browser.wait(EC.presenceOf(input_field), 5000);
+
+      /*//Проверки
+      search_field.isDisplayed().then(disp => { console.log("isDisplayed:", disp); })
+      search_field.isEnabled().then(enab => { console.log("isEnabled:", enab); })
+      */
+         // очищаем
+         await input_field.clear();
+
+      // пишем в элемент текст “Лондон”
+      await input_field.sendKeys("Париж");
       
+      // ждем
+      await browser.wait(EC.presenceOf(select_button), 10000);
+
+      // кликаем по кнопке меню
+      await select_button.click();
+
+         // ждем
+await browser.wait(EC.presenceOf(more_button), 10000);
+
+// кликаем по кнопке меню
+await more_button.click();
+
+//
+var content_2 = element(by.css(".services-new__more-popup-content"));
+content_2.getText().then(cont2 => { console.log("text:", cont2); })
+
+//
+var content_1 = element(by.css(".services-new__more-popup-content"));
+content_1.getText().then(cont => { console.log("text:", cont); })
+
+it('Checking content', () => {
+  expect(content_2).toEqual(content_1); //not is chained to expect
+});
+
   //закрываем на всякий случай, хотя итак закроется
       afterAll (() =>      {
       browser.close
