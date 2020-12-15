@@ -89,20 +89,20 @@ await more_button.click();
 
 //
 var content_2 = element(by.css(".services-new__more-popup-content"));
-content_2.getText().then(cont2 => { console.log("text:", cont2); })
 
-//
-var content_1 = element(by.css(".services-new__more-popup-content"));
-content_1.getText().then(cont => { console.log("text:", cont); })
+         // ждем
+         await browser.wait(EC.presenceOf(content_2), 10000);
 
-it('Checking content', () => {
-  expect(content_2).toEqual(content_1); //not is chained to expect
-});
-
-  //закрываем на всякий случай, хотя итак закроется
-      afterAll (() =>      {
-      browser.close
-      })
-
-    });
-});
+         await content_2.getText().then(cont2 => { console.log("text2:", cont2); 
+         
+          expect(content_2).toEqual(content_1); //not is chained to expect
+          console.log('coool');
+        })
+        
+          //закрываем на всякий случай, хотя итак закроется
+              afterAll (() =>      {
+              browser.close
+              })
+        
+            });
+        });
