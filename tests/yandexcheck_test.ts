@@ -89,7 +89,7 @@ let content_2 = element.all(by.css(".services-new__more-popup-content"));
  await content_2.getText().then(cont2 => { console.log("Содержимое для Парижа:", cont2); 
  
  //типа сравниваем 2 содержимых
-         expect(content_2).toEqual(content_1); 
+         expect(content_2.getText()).toEqual(content_1.getText()); 
          // добавил чисто, чтобы понимать что сравнение вообще выполнялось, а не пропускалось)
          console.log('Конец');
    
