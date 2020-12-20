@@ -1,5 +1,6 @@
 import { browser, by, element, protractor } from "protractor";
 
+
 describe('Yandex1', () => {
     it('Change geolink and check content', async () => {
 
@@ -9,8 +10,12 @@ describe('Yandex1', () => {
         // выключаем проверку на AngularJS
         await browser.waitForAngularEnabled(false);
 
-        // открываем страницу BBC
+        // открываем страницу яндекса
         await browser.get('https:///yandex.by/');
+      
+// получаем и выводим сведения о погоде (для теста не нужно, идея была в том, чтобы подставлять содержимое для сравнения и получать заведомо неверный результат)
+let weather = element.all(by.css(".weather__content"));
+weather.getText().then(result => { console.log("Погода:", result); })
 
         // создаем элемент по css = 
         let geolink_button = element(by.css(".geolink__reg"));
@@ -18,85 +23,77 @@ describe('Yandex1', () => {
          // ждем появление этого элемента (события presenceOf)
       await browser.wait(EC.presenceOf(geolink_button), 10000);
 
-              // кликаем по кнопке закрытия
+              // кликаем по кнопке локации
               await geolink_button.click();
         
-        // создаем элемент по css = 
+        // создаем элемент по css =  поле ввода города
         let input_field = element(by.css("#city__front-input"));
 
         // ждем появление этого элемента (события presenceOf)
         await browser.wait(EC.presenceOf(input_field), 5000);
 
-        /*//Проверки
-        search_field.isDisplayed().then(disp => { console.log("isDisplayed:", disp); })
-        search_field.isEnabled().then(enab => { console.log("isEnabled:", enab); })
-        */
            // очищаем
            await input_field.clear();
 
         // пишем в элемент текст “Лондон”
         await input_field.sendKeys("Лондон");
 
-        // создаем элемент кнопки меню по css
+        // создаем элемент пункта списка
         let select_button = element(by.css(".b-autocomplete-item__reg"));
         
         // ждем
         await browser.wait(EC.presenceOf(select_button), 10000);
 
-        // кликаем по кнопке меню
+        // кликаем по 1 первой позиции в списке
         await select_button.click();
-
-          // создаем элемент кнопки меню по css
-          let more_button = element(by.css("[data-statlog='services_new.more']"));
         
+                 // создаем элемент кнопки "ещё" по css
+                 let more_button = element(by.css("[data-statlog='services_new.more']"));
+
            // ждем
   await browser.wait(EC.presenceOf(more_button), 10000);
 
-  // кликаем по кнопке меню
+  // кликаем по кнопке "ещё"
   await more_button.click();
 
-  //
-  var content_1 = element(by.css(".services-new__more-popup-content"));
-content_1.getText().then(cont => { console.log("text:", cont); })
+  // типа получаем содержимое поп-апа "ещё"
+  let content_1 = element.all(by.css(".services-new__more-popup-content"));
+content_1.getText().then(cont => { console.log("Содержимое для Лондона:", cont); })
 
-      // кликаем по кнопке закрытия
+      // кликаем по кнопке локации
       await geolink_button.click();
         
       // ждем появление этого элемента (события presenceOf)
       await browser.wait(EC.presenceOf(input_field), 5000);
 
-      /*//Проверки
-      search_field.isDisplayed().then(disp => { console.log("isDisplayed:", disp); })
-      search_field.isEnabled().then(enab => { console.log("isEnabled:", enab); })
-      */
          // очищаем
          await input_field.clear();
 
-      // пишем в элемент текст “Лондон”
+      // пишем в элемент текст “Париж”
       await input_field.sendKeys("Париж");
       
       // ждем
       await browser.wait(EC.presenceOf(select_button), 10000);
 
-      // кликаем по кнопке меню
+      // кликаем по 1 позиции из списка
       await select_button.click();
 
-         // ждем
+         // ждем появления кнопки "ещё"
 await browser.wait(EC.presenceOf(more_button), 10000);
 
-// кликаем по кнопке меню
+// кликаем по кнопке "ещё"
 await more_button.click();
 
-//
-var content_2 = element(by.css(".services-new__more-popup-content"));
+// получаем содержимое кнопки "ещё"
+let content_2 = element.all(by.css(".services-new__more-popup-content"));
+ await content_2.getText().then(cont2 => { console.log("Содержимое для Парижа:", cont2); 
+ 
+ //типа сравниваем 2 содержимых
+         expect(content_2).toEqual(content_1); 
+         // добавил чисто, чтобы понимать что сравнение вообще выполнялось, а не пропускалось)
+         console.log('Конец');
+   
 
-         // ждем
-         await browser.wait(EC.presenceOf(content_2), 10000);
-
-         await content_2.getText().then(cont2 => { console.log("text2:", cont2); 
-         
-          expect(content_2).toEqual(content_1); //not is chained to expect
-          console.log('coool');
         })
         
           //закрываем на всякий случай, хотя итак закроется
