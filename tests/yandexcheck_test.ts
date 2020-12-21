@@ -5,7 +5,7 @@ describe('Yandex1', () => {
     it('Change geolink and check content', async () => {
 
         // Создаем объект для работы с ожиданиями
-      let EC = protractor.ExpectedConditions;
+      const EC = protractor.ExpectedConditions;
 
         // выключаем проверку на AngularJS
       await browser.waitForAngularEnabled(false);
@@ -13,12 +13,8 @@ describe('Yandex1', () => {
         // открываем страницу яндекса
       await browser.get('https:///yandex.by/');
       
-        // получаем и выводим сведения о погоде (для теста не нужно, идея была в том, чтобы подставлять содержимое для сравнения и получать заведомо неверный результат)
-      let weather = element.all(by.css(".weather__content"));
-      weather.getText()
-
         // создаем элемент по css = 
-      let geolink_button = element(by.css(".geolink__reg"));
+      const geolink_button = element(by.css(".geolink__reg"));
         
         // ждем появление этого элемента (события presenceOf)
       await browser.wait(EC.presenceOf(geolink_button), 10000);
@@ -58,7 +54,6 @@ describe('Yandex1', () => {
 
       // типа получаем содержимое поп-апа "ещё"
       let content_1 = element.all(by.css(".services-new__more-popup-content"));
-      content_1.getText()
 
       // кликаем по кнопке локации
       await geolink_button.click();
@@ -86,15 +81,13 @@ describe('Yandex1', () => {
 
        // получаем содержимое кнопки "ещё"
       let content_2 = element.all(by.css(".services-new__more-popup-content"));
-      await content_2.getText()
  
        //типа сравниваем 2 содержимых
       expect(content_2.getText()).toEqual(content_1.getText()); 
-        })
+      })
         
-          //закрываем на всякий случай, хотя итак закроется
-              afterAll (() =>      {
-              browser.close
-              })
-        
-            });
+      //закрываем на всякий случай, хотя итак закроется
+      afterAll (() =>      {
+      browser.close
+       })
+         });
