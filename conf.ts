@@ -1,15 +1,15 @@
-import { Config } from "protractor";
-
-export const config: Config = {
-    seleniumAddress: "http://localhost:4444/wd/hub",
-    SELENIUM_PROMISE_MANAGER: false,
-    capabilities: {
-        browserName: "chrome",
-        /*chromeOptions: {
-            args: [ "--headless", "--window-size=800,600" ]
-        }*/
-    },
+// An example configuration file.
+exports.config = {
+    directConnect: true,
+    // The address of a running selenium server.
+    seleniumAddress: 'http://localhost:4444/wd/hub',
+  
+    // Capabilities to be passed to the webdriver instance.
+    multiCapabilities: [{
+      'browserName': 'chrome'
+    }],
     specs: [
         "tests/*test.js",
     ]
-};
+  };
+  
