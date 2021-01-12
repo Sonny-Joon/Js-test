@@ -20,10 +20,12 @@ describe('Yandex2', () => {
       await LoginPage.ClickOnSubmitButton ();
       await LoginPage.inputInPassField ();
       await LoginPage.ClickOnSubmitButton ();
-      let UserName = element.all(by.css(".user-account_has-ticker_yes"));
-      expect(UserName.getText()).toEqual('javascriptpain');     
+      const UserName = element(by.css(".user-account_left-name span.user-account__name"));
+      await browser.wait(EC.visibilityOf(UserName), 30000);
+     console.log(await UserName.getText());
+    await expect(await UserName.getText()).toEqual("javascriptpain"); 
       })
-      //закрываем на всякий случай, хотя итак закроется
+      //закрываем на всякий случай, хотя итак закроется запустить?
       afterAll (() =>      {
       browser.close
        })

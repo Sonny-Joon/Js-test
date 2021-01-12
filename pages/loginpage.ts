@@ -1,40 +1,28 @@
 import { browser, element, by, protractor} from 'protractor';
       const EC = protractor.ExpectedConditions;
+      const LoginField = element(by.css("#passp-field-login"));
+      const SubmitButton = element(by.css("[type=submit]"));
+      const PassField = element(by.css("#passp-field-passwd"));
+
 
 /* Class representing login yandex page.
   Methods/properties for global elements should go here. 
  */
 export class LoginPage {
-  constructor() {}
-
-  static LoginField() {
-    const loc = "#passp-field-login";
-    return element(by.css(loc));
-  }
 
   static async inputInLoginField() {
-    await browser.wait(EC.presenceOf(LoginPage.LoginField()), 10000);
-    await LoginPage.LoginField().sendKeys("javascriptpain@yandex.by");
-}
-
-  static SubmitButton() {
-    const loc = "[type=submit]";
-    return element(by.css(loc));
+    await browser.wait(EC.presenceOf(LoginField), 10000);
+    await LoginField.sendKeys("javascriptpain@yandex.by");
 }
 
   static async ClickOnSubmitButton() {
-    await browser.wait(EC.presenceOf(LoginPage.SubmitButton()), 10000);
-    await LoginPage.SubmitButton().click();
+    await browser.wait(EC.presenceOf(SubmitButton), 10000);
+    await SubmitButton.click();
 }
 
-static PassField() {
-    const loc = "#passp-field-passwd";
-    return element(by.css(loc));
-  }
-
   static async inputInPassField() {
-    await browser.wait(EC.presenceOf(LoginPage.PassField()), 10000);
-    await LoginPage.PassField().sendKeys("AutotestUser123");
+    await browser.wait(EC.presenceOf(PassField), 10000);
+    await PassField.sendKeys("AutotestUser123");
 }
 
 }

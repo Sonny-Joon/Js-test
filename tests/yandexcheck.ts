@@ -1,6 +1,7 @@
 import { browser, by, element, protractor } from "protractor";
 
       beforeAll (() =>      {
+        browser.driver.manage().window().maximize();
         // выключаем проверку на AngularJS
         browser.waitForAngularEnabled(false);
    })
