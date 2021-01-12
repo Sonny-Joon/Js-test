@@ -2,6 +2,7 @@ import { browser, by, element, protractor } from "protractor";
 import { HomePage } from "../pages/homepage";
 import { LoginPage } from "../pages/loginpage";
 import { AccountPage } from "../pages/accountpage";
+import { url } from "inspector";
 
       beforeAll (() =>      {
         // выключаем проверку на AngularJS
@@ -23,9 +24,10 @@ describe('Yandex3', () => {
       await LoginPage.ClickOnSubmitButton ();
       await AccountPage.ClickOnAvatarButton ();
       await AccountPage.ClickLogOutButton ();
-      await browser.wait(EC.urlContains('mail.yandex.by'), 10000);
-
-      })
+      await browser.getCurrentUrl().then(function(url) {
+        console.log("URL= "+ url);
+        expect(url).toContain("https://passport.yandex.by/"); 
+                 })
       //закрываем на всякий случай, хотя итак закроется запустить?
       afterAll (() =>      {
       browser.close
@@ -33,4 +35,6 @@ describe('Yandex3', () => {
        
          });
 
-         
+})
+
+    
