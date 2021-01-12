@@ -9,7 +9,7 @@ exports.config = {
       'browserName': 'chrome'
     }],
     specs: [
-        "tests/logout_test.js",
+        "tests/fail_pass_test.js",
     ]
        
   };
