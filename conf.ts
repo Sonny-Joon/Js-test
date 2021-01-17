@@ -6,12 +6,13 @@ exports.config = {
   
     // Capabilities to be passed to the webdriver instance.
     multiCapabilities: [{
-      'browserName': 'chrome'
+      'browserName': 'chrome',
+      chromeOptions: {
+        'args': ['start-maximized']
+    }
     }],
     specs: [
-        "tests/fail_pass_test.js",
+        "tests/navigation_test.js",
     ]
        
   };
-  
-  
