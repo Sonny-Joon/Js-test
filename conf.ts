@@ -9,7 +9,9 @@ exports.config = {
       'browserName': 'chrome'
     }],
     specs: [
-        "tests/*test.js",
+        "tests/fail_pass_test.js",
     ]
+       
   };
+  
   
