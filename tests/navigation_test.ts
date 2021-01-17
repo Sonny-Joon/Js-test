@@ -1,5 +1,6 @@
 import { browser, by, element, protractor } from "protractor";
 import { HomePage } from "../pages/homepage";
+let addHomePage = new HomePage ();
 let goBackToPreviousTab = function() {
     browser.getAllWindowHandles().then(function (handles) {
         browser.driver.switchTo().window(handles[1]);
@@ -25,7 +26,7 @@ describe('Yandex5', () => {
     // открываем страницу яндекса
     await browser.get('https://yandex.by/');
      //step 1 video 
-    await HomePage.ClickOnVideoButton ();
+    await addHomePage.ClickOnVideoButton ();
     openNewTab ();
     await browser.getCurrentUrl().then(function(url) {
     console.log("URL= "+ url);
@@ -33,7 +34,7 @@ describe('Yandex5', () => {
     })
     goBackToPreviousTab ();
      // step 2 images
-    await HomePage.ClickOnImagesButton ();
+    await addHomePage.ClickOnImagesButton ();
     openNewTab ();
     await browser.getCurrentUrl().then(function(url) {
     console.log("URL= "+ url);
@@ -41,7 +42,7 @@ describe('Yandex5', () => {
     })
     goBackToPreviousTab ();
     // step 3 news
-    await HomePage.ClickOnNewsButton ();
+    await addHomePage.ClickOnNewsButton ();
     openNewTab ();
     await browser.getCurrentUrl().then(function(url) {
     console.log("URL= "+ url);
@@ -49,7 +50,7 @@ describe('Yandex5', () => {
     })
     goBackToPreviousTab ();
     // step 4 maps
-    await HomePage.ClickOnMapsButton ();
+    await addHomePage.ClickOnMapsButton ();
     openNewTab ();
     await browser.getCurrentUrl().then(function(url) {
     console.log("URL= "+ url);
@@ -57,7 +58,7 @@ describe('Yandex5', () => {
     })
     goBackToPreviousTab ();
      // step 5 market
-    await HomePage.ClickOnMarketButton ();
+    await addHomePage.ClickOnMarketButton ();
     openNewTab ();
     await browser.getCurrentUrl().then(function(url) {
     console.log("URL= "+ url);
@@ -65,7 +66,7 @@ describe('Yandex5', () => {
     })
     goBackToPreviousTab ();
      // step 6 translate
-    await HomePage.ClickOnTranslateButton ();
+    await addHomePage.ClickOnTranslateButton ();
     openNewTab ();
     await browser.getCurrentUrl().then(function(url) {
     console.log("URL= "+ url);
@@ -73,7 +74,7 @@ describe('Yandex5', () => {
     })
     goBackToPreviousTab ();
      // step 7 music
-    await HomePage.ClickOnMusicButton ();
+    await addHomePage.ClickOnMusicButton ();
     openNewTab ();
     await browser.getCurrentUrl().then(function(url) {
     console.log("URL= "+ url);

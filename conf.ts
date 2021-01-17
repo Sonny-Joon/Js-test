@@ -12,7 +12,7 @@ exports.config = {
     }
     }],
     specs: [
-        "tests/navigation_test.js",
+        "tests/language_test.js",
     ]
        
   };
