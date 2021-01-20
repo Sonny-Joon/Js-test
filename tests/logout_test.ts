@@ -2,35 +2,27 @@ import { browser, by, element, protractor } from "protractor";
 import { HomePage } from "../pages/homepage";
 import { LoginPage } from "../pages/loginpage";
 import { AccountPage } from "../pages/accountpage";
-import { url } from "inspector";
+import {URL} from '../utils/constants';
+import { Functions } from "../pages/functions";
+
 let addHomePage = new HomePage ();
 let addAccountPage = new AccountPage ();
 let addLoginPage = new LoginPage ();
-      beforeAll (() =>      {
-        // выключаем проверку на AngularJS
-        browser.waitForAngularEnabled(false);
-   })
+let addFunctions = new Functions ();
+
+  
 describe('Yandex3', () => {
     it('Click login button', async () => {
-        // Создаем объект для работы с ожиданиями
-        const EC = protractor.ExpectedConditions;
-        // открываем страницу яндекса
-      await browser.get('https://yandex.by/');
-      await addHomePage.ClickOnLoginButton ();
-     await  browser.getAllWindowHandles().then(function(handles) {
-        let newWindowHandle = handles[1]; // this is your new window
-        browser.switchTo().window(newWindowHandle)     });
+    await browser.get(URL);
+    await addHomePage.ClickOnLoginButton ();
+    await addFunctions.openNewTab ();
       await addLoginPage.inputInLoginField ();
       await addLoginPage.ClickOnSubmitButton ();
       await addLoginPage.inputInPassField ();
       await addLoginPage.ClickOnSubmitButton ();
       await addAccountPage.ClickOnAvatarButton ();
       await addAccountPage.ClickLogOutButton ();
-      await browser.getCurrentUrl().then(function(url) {
-        console.log("URL= "+ url);
-        expect(url).toContain("https://passport.yandex.by/"); 
-                 })
-      //закрываем на всякий случай, хотя итак закроется запустить?
+      await addHomePage.CheckLogOut ();
       afterAll (() =>      {
       browser.close
        })
@@ -38,5 +30,4 @@ describe('Yandex3', () => {
          });
 
 })
-
     

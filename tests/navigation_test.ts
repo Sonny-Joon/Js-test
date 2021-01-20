@@ -1,90 +1,65 @@
 import { browser, by, element, protractor } from "protractor";
 import { HomePage } from "../pages/homepage";
+import {URL} from '../utils/constants';
+import { Functions } from "../pages/functions";
+
 let addHomePage = new HomePage ();
-let goBackToPreviousTab = function() {
-    browser.getAllWindowHandles().then(function (handles) {
-        browser.driver.switchTo().window(handles[1]);
-        browser.driver.close();
-        browser.driver.switchTo().window(handles[0]);
-    });
-}
-let openNewTab = function() {
-browser.getAllWindowHandles().then(function(handles) {
-        let newWindowHandle = handles[1]; // this is your new window
-        browser.switchTo().window(newWindowHandle)     });
-}
+let addFunctions = new Functions ();
 
-
-      beforeAll (() =>      {
-        // выключаем проверку на AngularJS
-        browser.waitForAngularEnabled(false);
-   })
 describe('Yandex5', () => {
     it('Click login button', async () => {
-    // Создаем объект для работы с ожиданиями
-    const EC = protractor.ExpectedConditions;
-    // открываем страницу яндекса
-    await browser.get('https://yandex.by/');
-     //step 1 video 
+    await browser.get(URL);
     await addHomePage.ClickOnVideoButton ();
-    openNewTab ();
+    await addFunctions.openNewTab ();
     await browser.getCurrentUrl().then(function(url) {
     console.log("URL= "+ url);
     expect(url).toContain("https://yandex.by/video"); 
     })
-    goBackToPreviousTab ();
-     // step 2 images
+    await addFunctions.goBackToPreviousTab ();
     await addHomePage.ClickOnImagesButton ();
-    openNewTab ();
+    await addFunctions.openNewTab ();
     await browser.getCurrentUrl().then(function(url) {
     console.log("URL= "+ url);
     expect(url).toContain("https://yandex.by/images"); 
     })
-    goBackToPreviousTab ();
-    // step 3 news
+    await addFunctions.goBackToPreviousTab ();
     await addHomePage.ClickOnNewsButton ();
-    openNewTab ();
+    await addFunctions.openNewTab ();
     await browser.getCurrentUrl().then(function(url) {
     console.log("URL= "+ url);
     expect(url).toContain("https://yandex.by/news"); 
     })
-    goBackToPreviousTab ();
-    // step 4 maps
+    await addFunctions.goBackToPreviousTab ();
     await addHomePage.ClickOnMapsButton ();
-    openNewTab ();
+    await addFunctions.openNewTab ();
     await browser.getCurrentUrl().then(function(url) {
     console.log("URL= "+ url);
     expect(url).toContain("https://yandex.by/maps"); 
     })
-    goBackToPreviousTab ();
-     // step 5 market
+    await addFunctions.goBackToPreviousTab ();
     await addHomePage.ClickOnMarketButton ();
-    openNewTab ();
+    await addFunctions.openNewTab ();
     await browser.getCurrentUrl().then(function(url) {
     console.log("URL= "+ url);
     expect(url).toContain("https://market.yandex.by/"); 
     })
-    goBackToPreviousTab ();
-     // step 6 translate
+    await addFunctions.goBackToPreviousTab ();
     await addHomePage.ClickOnTranslateButton ();
-    openNewTab ();
+    await addFunctions.openNewTab ();
     await browser.getCurrentUrl().then(function(url) {
     console.log("URL= "+ url);
     expect(url).toContain("https://translate.yandex.by/"); 
     })
-    goBackToPreviousTab ();
-     // step 7 music
+    await addFunctions.goBackToPreviousTab ();
     await addHomePage.ClickOnMusicButton ();
-    openNewTab ();
+    await addFunctions.openNewTab ();
     await browser.getCurrentUrl().then(function(url) {
     console.log("URL= "+ url);
     expect(url).toContain("https://music.yandex.by/"); 
     })
-    goBackToPreviousTab ();
+    await addFunctions.goBackToPreviousTab ();
     })
-    
-      //закрываем на всякий случай, хотя итак закроется запустить?
-      afterAll (() =>      {
+          afterAll (() =>      {
       browser.close
        })
        

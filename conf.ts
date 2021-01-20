@@ -1,3 +1,5 @@
+import { browser} from "protractor";
+
 // An example configuration file.
 exports.config = {
     directConnect: true,
@@ -8,11 +10,15 @@ exports.config = {
     multiCapabilities: [{
       'browserName': 'chrome',
       chromeOptions: {
-        'args': ['start-maximized']
+        'args': ['start-maximized'],
     }
     }],
     specs: [
-        "tests/language_test.js",
-    ]
+        "tests/navigation_test.js",
+    ],
+ 
+       onPrepare: () => {
+        browser.waitForAngularEnabled(false)
+       }
        
   };

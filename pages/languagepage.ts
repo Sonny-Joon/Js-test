@@ -10,6 +10,9 @@ export class LanguagePage {
     SelectButton = element(by.css(".select__button"));
     UkLangButton = element(by.xpath("//span[contains(.,'Українська')]"));
     SaveButton = element(by.css('.form__save'));   
+    UkrLang = element(by.xpath("//a[contains(.,'Ukr')]"));
+    
+
     
   async ClickOnSelectButton(): Promise<void> {
       await browser.wait(EC.presenceOf(this.SelectButton), 10000);
@@ -25,6 +28,12 @@ async ClickOnSaveButton (): Promise<void> {
     await browser.wait(EC.presenceOf(this.SaveButton), 10000);
     await this.SaveButton.click();
 }
+
+async checkUkrLang (): Promise <string> {
+  await browser.wait(EC.presenceOf(this.UkrLang), 10000);
+  return this.UkrLang.getText();
+}
+
   
   }
   

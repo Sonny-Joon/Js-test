@@ -66,5 +66,14 @@ async ClickOnLangMoreButton(): Promise<void> {
   await browser.wait(EC.presenceOf(this.LangMoreButton), 10000);
   await this.LangMoreButton.click();
 }
+
+async CheckLogOut(): Promise<void> {
+  expect(await browser.getCurrentUrl()).toContain("https://passport.yandex.by/"); 
+}
+
+async CheckVideoPage(): Promise<void> {
+  expect(await browser.getCurrentUrl()).toContain("https://yandex.by/video"); 
+}
+
+
   }
-   
