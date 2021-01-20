@@ -5,7 +5,7 @@ import { browser, element, by, protractor} from 'protractor';
   Methods/properties for global elements should go here. 
  */
 
-export class AccountPage {
+export class AccountPageObject {
 
   AvatarButton = element(by.css(".user-account__pic .user-pic__image"));
   LogOutButton = element(by.css('[aria-label="Log out"]'));
@@ -28,4 +28,4 @@ async CheckUserName (): Promise<void>  {
   
   }
   
-
+  export const AccountPage = new AccountPageObject();

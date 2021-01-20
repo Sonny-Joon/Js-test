@@ -5,7 +5,7 @@ import { browser, element, by, protractor} from 'protractor';
   Methods/properties for global elements should go here. 
  */
 
-export class LanguagePage {
+export class LanguagePageObject {
 
     SelectButton = element(by.css(".select__button"));
     UkLangButton = element(by.xpath("//span[contains(.,'Українська')]"));
@@ -37,3 +37,4 @@ async checkUkrLang (): Promise <string> {
   
   }
   
+  export const LanguagePage = new LanguagePageObject();

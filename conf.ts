@@ -20,5 +20,4 @@ exports.config = {
        onPrepare: () => {
         browser.waitForAngularEnabled(false)
        }
-       
   };

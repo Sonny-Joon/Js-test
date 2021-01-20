@@ -77,3 +77,5 @@ async CheckVideoPage(): Promise<void> {
 
 
   }
+
+  export const HomePage = new HomePage();
