@@ -3,18 +3,16 @@ import { HomePage } from "../pages/homepage";
 import { LanguagePage } from "../pages/languagepage";
 import {URL} from '../utils/constants';
 
-let addHomePage = new HomePage ();
-let addLanguagePage = new LanguagePage ();
      describe('Yandex2', () => {
     it('Click login button', async () => {
     await browser.get(URL);
-    await addHomePage.ClickOnLangButton ();
-    await addHomePage.ClickOnLangMoreButton ();
-    await addLanguagePage.ClickOnSelectButton ();
-    await addLanguagePage.SelectUkOption ();
-    await addLanguagePage.ClickOnSaveButton ();
-    await addLanguagePage.checkUkrLang ();    
-    await expect(await addLanguagePage.checkUkrLang()).toEqual("Ukr"); 
+    await HomePage.ClickOnLangButton ();
+    await HomePage.ClickOnLangMoreButton ();
+    await LanguagePage.ClickOnSelectButton ();
+    await LanguagePage.SelectUkOption ();
+    await LanguagePage.ClickOnSaveButton ();
+    await LanguagePage.checkUkrLang ();    
+    await expect(await LanguagePage.checkUkrLang()).toEqual("Ukr"); 
                      })
       afterAll (() =>      {
       browser.close

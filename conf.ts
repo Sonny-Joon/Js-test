@@ -1,3 +1,4 @@
+declare const allure: any;
 import { browser} from "protractor";
 
 // An example configuration file.
@@ -14,10 +15,24 @@ exports.config = {
     }
     }],
     specs: [
-        "tests/navigation_test.js",
+        "tests/*test.js",
     ],
  
-       onPrepare: () => {
+    onPrepare: function () {
         browser.waitForAngularEnabled(false)
-       }
-  };
+        var AllureReporter = require('jasmine-allure-reporter');
+var allureReporter = new AllureReporter({
+  resultsDir: 'allure-results'
+});
+        jasmine.getEnv().addReporter(allureReporter);
+        jasmine.getEnv().afterEach(function(done){
+          browser.takeScreenshot().then(function (png) {
+            allure.createAttachment('Screenshot', function () {
+              return new Buffer(png, 'base64')
+            }, 'image/png')();
+            done();
+          })
+        });
+  
+      }
+    };

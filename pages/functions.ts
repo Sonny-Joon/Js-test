@@ -1,6 +1,6 @@
 import { browser, element, by, protractor} from 'protractor';
 
-export class Functions {
+export class FunctionsObject {
 
   openNewTab = function () {
     browser.getAllWindowHandles().then(function(handles) {
@@ -17,3 +17,4 @@ export class Functions {
 }
 
   }
+  export const Functions = new FunctionsObject();

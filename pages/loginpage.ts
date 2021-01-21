@@ -4,7 +4,7 @@ import { browser, element, by, protractor} from 'protractor';
 /* Class representing login yandex page.
   Methods/properties for global elements should go here. 
  */
-export class LoginPage {
+export class LoginPageObject {
 
   LoginField = element(by.css("#passp-field-login"));
   SubmitButton = element(by.css("[type=submit]"));
@@ -39,3 +39,4 @@ async CheckInvalidPassMessage(): Promise<void> {
 }
 
 
+export const LoginPage = new LoginPageObject();

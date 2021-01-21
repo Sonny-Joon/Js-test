@@ -13,7 +13,7 @@ let goBackToPreviousTab = function() {
         browser.driver.close();	
         browser.driver.switchTo().window(handles[0])    });	
     }
-    describe('Yandex5', () => {
+    describe('Yandex32', () => {
       it('Click login button', async () => {
       await browser.get(URL);
       await HomePage.ClickOnVideoButton ();
@@ -22,15 +22,15 @@ let goBackToPreviousTab = function() {
       console.log("URL= "+ url);
       expect(url).toContain("https://yandex.by/video"); 
       })
-      goBackToPreviousTab ();
-
+      await browser.get(URL);
       await HomePage.ClickOnImagesButton ();
       openNewTab ();
       await browser.getCurrentUrl().then(function(url) {
       console.log("URL= "+ url);
       expect(url).toContain("https://yandex.by/images"); 
       })
-      goBackToPreviousTab ();
+      await browser.get(URL);
+
 
       await HomePage.ClickOnNewsButton ();
       openNewTab ();
@@ -38,7 +38,8 @@ let goBackToPreviousTab = function() {
       console.log("URL= "+ url);
       expect(url).toContain("https://yandex.by/news"); 
       })
-      goBackToPreviousTab ();
+      await browser.get(URL);
+
 
       await HomePage.ClickOnMapsButton ();
       openNewTab ();
@@ -46,7 +47,8 @@ let goBackToPreviousTab = function() {
       console.log("URL= "+ url);
       expect(url).toContain("https://yandex.by/maps"); 
       })
-      goBackToPreviousTab ();
+      await browser.get(URL);
+
 
       await HomePage.ClickOnMarketButton ();
       openNewTab ();
@@ -54,7 +56,8 @@ let goBackToPreviousTab = function() {
       console.log("URL= "+ url);
       expect(url).toContain("https://market.yandex.by/"); 
       })
-      goBackToPreviousTab ();
+      await browser.get(URL);
+
       
       await HomePage.ClickOnTranslateButton ();
       openNewTab ();
@@ -62,7 +65,8 @@ let goBackToPreviousTab = function() {
       console.log("URL= "+ url);
       expect(url).toContain("https://translate.yandex.by/"); 
       })
-      goBackToPreviousTab ();
+      await browser.get(URL);
+
 
       await HomePage.ClickOnMusicButton ();
       openNewTab ();
@@ -70,7 +74,8 @@ let goBackToPreviousTab = function() {
       console.log("URL= "+ url);
       expect(url).toContain("https://music.yandex.by/"); 
       })
-      goBackToPreviousTab ();
+      await browser.get(URL);
+
       })
 
         afterAll (() =>      {

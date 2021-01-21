@@ -3,20 +3,17 @@ import { HomePage } from "../pages/homepage";
 import { LoginPage } from "../pages/loginpage";
 import {URL} from '../utils/constants';
 import { Functions } from "../pages/functions";
-let addHomePage = new HomePage ();
-let addLoginPage = new LoginPage ();
-let addFunctions = new Functions ();
 
 describe('Yandex2', () => {
     it('Click login button', async () => {
      await browser.get(URL);
-     await addHomePage.ClickOnLoginButton ();
-     await addFunctions.openNewTab ();
-     await addLoginPage.inputInLoginField ();
-     await addLoginPage.ClickOnSubmitButton ();
-     await addLoginPage.FailinputInPassField ();
-     await addLoginPage.ClickOnSubmitButton ();
-     await addLoginPage.CheckInvalidPassMessage ();
+     await HomePage.ClickOnLoginButton ();
+     await Functions.openNewTab ();
+     await LoginPage.inputInLoginField ();
+     await LoginPage.ClickOnSubmitButton ();
+     await LoginPage.FailinputInPassField ();
+     await LoginPage.ClickOnSubmitButton ();
+     await LoginPage.CheckInvalidPassMessage ();
       })
             afterAll (() =>      {
       browser.close

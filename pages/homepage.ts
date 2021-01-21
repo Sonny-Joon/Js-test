@@ -4,7 +4,7 @@ import { browser, element, by, protractor} from 'protractor';
 /* Class representing home yandex page.
   Methods/properties for global elements should go here. 
  */
-export class HomePage {
+export class HomePageObject {
 
   LoginButton = element(by.css("[data-statlog='notifications.mail.logout.domik.login.big']"));
   VideoButton = element(by.css ("[data-id='video']"));
@@ -78,4 +78,4 @@ async CheckVideoPage(): Promise<void> {
 
   }
 
-  export const HomePage = new HomePage();
+  export const HomePage = new HomePageObject();

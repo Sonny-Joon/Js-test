@@ -5,22 +5,18 @@ import { AccountPage } from "../pages/accountpage";
 import {URL} from '../utils/constants';
 import { Functions } from "../pages/functions";
 
-let addAccountPage = new AccountPage ();
-let addLoginPage = new LoginPage ();
-let addFunctions = new Functions ();
-
-  
+ 
 describe('Yandex3', () => {
     it('Click login button', async () => {
     await browser.get(URL);
     await HomePage.ClickOnLoginButton ();
-    await addFunctions.openNewTab ();
-      await addLoginPage.inputInLoginField ();
-      await addLoginPage.ClickOnSubmitButton ();
-      await addLoginPage.inputInPassField ();
-      await addLoginPage.ClickOnSubmitButton ();
-      await addAccountPage.ClickOnAvatarButton ();
-      await addAccountPage.ClickLogOutButton ();
+    await Functions.openNewTab ();
+      await LoginPage.inputInLoginField ();
+      await LoginPage.ClickOnSubmitButton ();
+      await LoginPage.inputInPassField ();
+      await LoginPage.ClickOnSubmitButton ();
+      await AccountPage.ClickOnAvatarButton ();
+      await AccountPage.ClickLogOutButton ();
       await HomePage.CheckLogOut ();
       afterAll (() =>      {
       browser.close
