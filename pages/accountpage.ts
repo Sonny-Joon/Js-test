@@ -1,27 +1,31 @@
 import { browser, element, by, protractor} from 'protractor';
       const EC = protractor.ExpectedConditions;
-      const AvatarButton = element(by.css(".user-account__pic .user-pic__image"));
-      const LogOutButton = element(by.css("[aria-label='Выйти из аккаунта']"));
-
-      browser.driver.manage().window().maximize();
-
-
+      
 /* Class representing home yandex page.
   Methods/properties for global elements should go here. 
  */
 
-export class AccountPage {
+export class AccountPageObject {
+
+  AvatarButton = element(by.css(".user-account__pic .user-pic__image"));
+  LogOutButton = element(by.css('[aria-label="Log out"]'));
+  UserName = element(by.css(".user-account_left-name span.user-account__name"));
     
-    static async ClickOnAvatarButton() {
-      await browser.wait(EC.presenceOf(AvatarButton), 10000);
-      await AvatarButton.click();
+  async ClickOnAvatarButton(): Promise<void> {
+      await browser.wait(EC.presenceOf(this.AvatarButton), 10000);
+      await this.AvatarButton.click();
   }
 
-  static async ClickLogOutButton () {
-    await browser.wait(EC.presenceOf(LogOutButton), 10000);
-    await LogOutButton.click();
+  async ClickLogOutButton (): Promise<void>  {
+    await browser.wait(EC.presenceOf(this.LogOutButton), 10000);
+    await this.LogOutButton.click();
+}
+
+async CheckUserName (): Promise<void>  {
+  await browser.wait(EC.visibilityOf(this.UserName), 30000);
+  expect(await this.UserName.getText()).toEqual("javascriptpain"); 
 }
   
   }
   
- 
+  export const AccountPage = new AccountPageObject();

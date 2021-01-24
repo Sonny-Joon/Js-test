@@ -1,9 +1,5 @@
 import { browser, by, element, protractor } from "protractor";
 
-      beforeAll (() =>      {
-        // выключаем проверку на AngularJS
-        browser.waitForAngularEnabled(false);
-   })
 describe('Yandex1', () => {
     it('Change geolink and check content', async () => {
         // Создаем объект для работы с ожиданиями
