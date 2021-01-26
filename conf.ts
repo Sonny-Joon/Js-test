@@ -15,7 +15,7 @@ exports.config = {
     }
     }],
     specs: [
-        "tests/*test.js",
+        "tests/navigation_test.js",
     ],
  
     onPrepare: function () {

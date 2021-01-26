@@ -4,7 +4,7 @@ import { LoginPage } from "../pages/loginpage";
 import {URL} from '../utils/constants';
 import { Functions } from "../pages/functions";
 
-describe('Yandex2', () => {
+describe('Yandex - invalid pass', () => {
     it('Click login button', async () => {
      await browser.get(URL);
      await HomePage.ClickOnLoginButton ();

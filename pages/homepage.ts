@@ -1,9 +1,13 @@
 import { browser, element, by, protractor} from 'protractor';
       const EC = protractor.ExpectedConditions;
+      import {waiters} from '../utils/waiters';
      
 /* Class representing home yandex page.
   Methods/properties for global elements should go here. 
+  
  */
+declare let allure: any;
+
 export class HomePageObject {
 
   LoginButton = element(by.css("[data-statlog='notifications.mail.logout.domik.login.big']"));
@@ -16,55 +20,47 @@ export class HomePageObject {
   MusicButton = element(by.css ("[data-id='music']"));
   LangButton = element(by.css (".b-langs"));
   LangMoreButton = element(by.css ('[data-statlog="head.lang.more"]'));
-      
+  
   async ClickOnLoginButton(): Promise<void> {
-    await browser.wait(EC.presenceOf(this.LoginButton), 10000);
-    await this.LoginButton.click();
+    await allure.createStep('ClickOnLoginButton', async() => {
+    await waiters.waitAndClick(this.LoginButton);
+  })();
   }
 
   async ClickOnVideoButton(): Promise<void> {
-    await browser.wait(EC.presenceOf(this.VideoButton), 10000);
-    await this.VideoButton.click();
+    await waiters.waitAndClick(this.VideoButton);
 }
 
   async ClickOnImagesButton(): Promise<void> {
-    await browser.wait(EC.presenceOf(this.ImagesButton), 10000);
-    await this.ImagesButton.click();
+    await waiters.waitAndClick(this.ImagesButton);
 }
 
  async ClickOnNewsButton(): Promise<void> {
-    await browser.wait(EC.presenceOf(this.NewsButton), 10000);
-    await this.NewsButton.click();
+  await waiters.waitAndClick(this.NewsButton);
 }
 
 async ClickOnMapsButton(): Promise<void> {
-  await browser.wait(EC.presenceOf(this.MapsButton), 10000);
-  await this.MapsButton.click();
+  await waiters.waitAndClick(this.MapsButton);
 }
 
 async ClickOnMarketButton(): Promise<void> {
-  await browser.wait(EC.presenceOf(this.MarketButton), 10000);
-  await this.MarketButton.click();
+  await waiters.waitAndClick(this.MarketButton);
 }
 
 async ClickOnTranslateButton(): Promise<void> {
-  await browser.wait(EC.presenceOf(this.TranslateButton), 10000);
-  await this.TranslateButton.click();
+  await waiters.waitAndClick(this.TranslateButton);
 }
 
 async ClickOnMusicButton(): Promise<void> {
-  await browser.wait(EC.presenceOf(this.MusicButton), 10000);
-  await this.MusicButton.click();
+  await waiters.waitAndClick(this.MusicButton);
 }
 
 async ClickOnLangButton(): Promise<void> {
-  await browser.wait(EC.presenceOf(this.LangButton), 10000);
-  await this.LangButton.click();
+  await waiters.waitAndClick(this.LangButton);
 }
 
 async ClickOnLangMoreButton(): Promise<void> {
-  await browser.wait(EC.presenceOf(this.LangMoreButton), 10000);
-  await this.LangMoreButton.click();
+  await waiters.waitAndClick(this.LangMoreButton);
 }
 
 async CheckLogOut(): Promise<void> {

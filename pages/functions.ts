@@ -1,6 +1,12 @@
 import { browser, element, by, protractor} from 'protractor';
+declare let allure: any;
+
 
 export class FunctionsObject {
+
+
+
+  
 
   openNewTab = function () {
     browser.getAllWindowHandles().then(function(handles) {
@@ -16,5 +22,16 @@ export class FunctionsObject {
       });
 }
 
+async allureStep(stepDefinition: string, method: any): Promise<void> {
+  await allure.createStep(stepDefinition, async () => {
+      try {
+          await method();
+      } catch (error) {
+          throw error;
+      }
+  })();
+}
+
   }
   export const Functions = new FunctionsObject();
+

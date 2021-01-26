@@ -1,6 +1,6 @@
 import { browser, element, by, protractor} from 'protractor';
       const EC = protractor.ExpectedConditions;
-      
+import {waiters} from '../utils/waiters';
 /* Class representing home yandex page.
   Methods/properties for global elements should go here. 
  */
@@ -12,13 +12,11 @@ export class AccountPageObject {
   UserName = element(by.css(".user-account_left-name span.user-account__name"));
     
   async ClickOnAvatarButton(): Promise<void> {
-      await browser.wait(EC.presenceOf(this.AvatarButton), 10000);
-      await this.AvatarButton.click();
+    await waiters.waitAndClick(this.AvatarButton);
   }
 
   async ClickLogOutButton (): Promise<void>  {
-    await browser.wait(EC.presenceOf(this.LogOutButton), 10000);
-    await this.LogOutButton.click();
+    await waiters.waitAndClick(this.LogOutButton);
 }
 
 async CheckUserName (): Promise<void>  {

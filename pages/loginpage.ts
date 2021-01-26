@@ -1,9 +1,8 @@
 import { browser, element, by, protractor} from 'protractor';
       const EC = protractor.ExpectedConditions;
+      declare let allure: any;
+import {waiters} from '../utils/waiters';
 
-/* Class representing login yandex page.
-  Methods/properties for global elements should go here. 
- */
 export class LoginPageObject {
 
   LoginField = element(by.css("#passp-field-login"));
@@ -12,13 +11,15 @@ export class LoginPageObject {
   ErrorMessage = element(by.css(".Textinput-Hint_state_error"));
 
   async inputInLoginField(): Promise<void> {
-    await browser.wait(EC.presenceOf(this.LoginField), 10000);
-    await this.LoginField.sendKeys("javascriptpain@yandex.by");
+    await allure.createStep('inputInLoginField', async() => {
+      await browser.wait(EC.presenceOf(this.LoginField), 10000);
+      await this.LoginField.sendKeys("javascriptpain@yandex.by");
+    })();
+  
 }
 
   async ClickOnSubmitButton(): Promise<void> {
-    await browser.wait(EC.presenceOf(this.SubmitButton), 10000);
-    await this.SubmitButton.click();
+    await waiters.waitAndClick(this.SubmitButton);
 }
 
  async inputInPassField(): Promise<void> {

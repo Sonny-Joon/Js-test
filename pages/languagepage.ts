@@ -1,9 +1,7 @@
 import { browser, element, by, protractor} from 'protractor';
       const EC = protractor.ExpectedConditions;
-      
-/* Class representing home yandex page.
-  Methods/properties for global elements should go here. 
- */
+import {waiters} from '../utils/waiters';
+
 
 export class LanguagePageObject {
 
@@ -15,18 +13,15 @@ export class LanguagePageObject {
 
     
   async ClickOnSelectButton(): Promise<void> {
-      await browser.wait(EC.presenceOf(this.SelectButton), 10000);
-      await this.SelectButton.click();
+    await waiters.waitAndClick(this.SelectButton);
   }
 
   async SelectUkOption (): Promise<void>  {
-    await browser.wait(EC.presenceOf(this.UkLangButton), 10000);
-    await this.UkLangButton.click();
+    await waiters.waitAndClick(this.UkLangButton);
 }
 
 async ClickOnSaveButton (): Promise<void> {
-    await browser.wait(EC.presenceOf(this.SaveButton), 10000);
-    await this.SaveButton.click();
+  await waiters.waitAndClick(this.SaveButton);
 }
 
 async checkUkrLang (): Promise <string> {
