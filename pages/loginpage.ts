@@ -2,6 +2,7 @@ import { browser, element, by, protractor} from 'protractor';
       const EC = protractor.ExpectedConditions;
       declare let allure: any;
 import {waiters} from '../utils/waiters';
+import { Functions } from "../pages/functions";
 
 export class LoginPageObject {
 
@@ -11,15 +12,16 @@ export class LoginPageObject {
   ErrorMessage = element(by.css(".Textinput-Hint_state_error"));
 
   async inputInLoginField(): Promise<void> {
-    await allure.createStep('inputInLoginField', async() => {
+    await Functions.allureStep ("inputInLoginField", async () => {
       await browser.wait(EC.presenceOf(this.LoginField), 10000);
       await this.LoginField.sendKeys("javascriptpain@yandex.by");
-    })();
-  
-}
+    });
+    }
 
   async ClickOnSubmitButton(): Promise<void> {
+    await Functions.allureStep ("ClickOnSubmitButton", async () => {
     await waiters.waitAndClick(this.SubmitButton);
+  });
 }
 
  async inputInPassField(): Promise<void> {
@@ -28,14 +30,17 @@ export class LoginPageObject {
 }
 
  async FailinputInPassField(): Promise<void> {
+  await Functions.allureStep ("FailinputInPassField", async () => {
     await browser.wait(EC.presenceOf(this.PassField), 10000);
     await this.PassField.sendKeys("NoAutotestPassword");
+  });
 }
 
 async CheckInvalidPassMessage(): Promise<void> {
+  await Functions.allureStep ("CheckInvalidPassMessage", async () => {
   await browser.wait(EC.presenceOf(this.ErrorMessage), 10000);
   expect(this.ErrorMessage.isDisplayed());
-
+});
 }
 }
 

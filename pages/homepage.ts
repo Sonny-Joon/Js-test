@@ -1,7 +1,8 @@
 import { browser, element, by, protractor} from 'protractor';
       const EC = protractor.ExpectedConditions;
       import {waiters} from '../utils/waiters';
-     
+      import { Functions } from "../pages/functions";
+
 /* Class representing home yandex page.
   Methods/properties for global elements should go here. 
   
@@ -22,9 +23,10 @@ export class HomePageObject {
   LangMoreButton = element(by.css ('[data-statlog="head.lang.more"]'));
   
   async ClickOnLoginButton(): Promise<void> {
-    await allure.createStep('ClickOnLoginButton', async() => {
-    await waiters.waitAndClick(this.LoginButton);
-  })();
+    await Functions.allureStep ("ClickOnLoginButton", async () => {
+      await waiters.waitAndClick(this.LoginButton);
+     });
+    
   }
 
   async ClickOnVideoButton(): Promise<void> {

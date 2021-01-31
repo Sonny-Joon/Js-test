@@ -4,10 +4,6 @@ declare let allure: any;
 
 export class FunctionsObject {
 
-
-
-  
-
   openNewTab = function () {
     browser.getAllWindowHandles().then(function(handles) {
             let newWindowHandle = handles[1]; // this is your new window
@@ -27,6 +23,10 @@ async allureStep(stepDefinition: string, method: any): Promise<void> {
       try {
           await method();
       } catch (error) {
+        await   browser.takeScreenshot().then(function (png) {
+          allure.createAttachment('Screenshot', function () {
+            return new Buffer(png, 'base64')
+          }, 'image/png')(); })
           throw error;
       }
   })();
