@@ -18,6 +18,13 @@ export class LoginPageObject {
     });
     }
 
+  async FailinputInLoginField(): Promise<void> {
+      await Functions.allureStep ("FailinputInLoginField", async () => {
+        await browser.wait(EC.presenceOf(this.LoginField), 10000);
+        await this.LoginField.sendKeys("NoAutotestUser");
+      });
+    }
+
   async ClickOnSubmitButton(): Promise<void> {
     await Functions.allureStep ("ClickOnSubmitButton", async () => {
     await waiters.waitAndClick(this.SubmitButton);
@@ -25,8 +32,10 @@ export class LoginPageObject {
 }
 
  async inputInPassField(): Promise<void> {
+  await Functions.allureStep ("inputInPassField", async () => {
     await browser.wait(EC.presenceOf(this.PassField), 10000);
     await this.PassField.sendKeys("AutotestUser123");
+  });
 }
 
  async FailinputInPassField(): Promise<void> {

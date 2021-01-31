@@ -1,6 +1,6 @@
 import { browser, by, element, protractor } from "protractor";
 
-describe('Yandex1', () => {
+describe('Yandex - check geolink', () => {
     it('Change geolink and check content', async () => {
         // Создаем объект для работы с ожиданиями
       const EC = protractor.ExpectedConditions;

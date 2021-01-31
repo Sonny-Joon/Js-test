@@ -15,7 +15,7 @@ exports.config = {
     }
     }],
     specs: [
-        "tests/fail_pass_test.js",
+        "tests/fail_login_test.js",
     ],
  
     onPrepare: function () {

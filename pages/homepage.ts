@@ -26,51 +26,72 @@ export class HomePageObject {
     await Functions.allureStep ("ClickOnLoginButton", async () => {
       await waiters.waitAndClick(this.LoginButton);
      });
-    
   }
 
   async ClickOnVideoButton(): Promise<void> {
+    await Functions.allureStep ("ClickOnVideoButton", async () => {
     await waiters.waitAndClick(this.VideoButton);
+  });
 }
 
   async ClickOnImagesButton(): Promise<void> {
+    await Functions.allureStep ("ClickOnImagesButton", async () => {
     await waiters.waitAndClick(this.ImagesButton);
+  });
 }
 
  async ClickOnNewsButton(): Promise<void> {
+  await Functions.allureStep ("ClickOnNewsButton", async () => {
   await waiters.waitAndClick(this.NewsButton);
+});
 }
 
 async ClickOnMapsButton(): Promise<void> {
+  await Functions.allureStep ("ClickOnMapsButton", async () => {
   await waiters.waitAndClick(this.MapsButton);
+});
 }
 
 async ClickOnMarketButton(): Promise<void> {
+  await Functions.allureStep ("ClickOnMarketButton", async () => {
   await waiters.waitAndClick(this.MarketButton);
+});
 }
 
 async ClickOnTranslateButton(): Promise<void> {
+  await Functions.allureStep ("ClickOnTransButton", async () => {
   await waiters.waitAndClick(this.TranslateButton);
+});
 }
 
 async ClickOnMusicButton(): Promise<void> {
+  await Functions.allureStep ("ClickOnMusicButton", async () => {
   await waiters.waitAndClick(this.MusicButton);
+});
 }
 
 async ClickOnLangButton(): Promise<void> {
+  await Functions.allureStep ("ClickOnLangButton", async () => {
   await waiters.waitAndClick(this.LangButton);
+});
 }
 
 async ClickOnLangMoreButton(): Promise<void> {
+  await Functions.allureStep ("ClickOnLangMoreButton", async () => {
   await waiters.waitAndClick(this.LangMoreButton);
+});
 }
 
 async CheckLogOut(): Promise<void> {
+  await Functions.allureStep ("CheckLogOut", async () => {
   expect(await browser.getCurrentUrl()).toContain("https://passport.yandex.by/"); 
+});
 }
 
 async CheckVideoPage(): Promise<void> {
+  await Functions.allureStep ("CheckVideoPage", async () => {
   expect(await browser.getCurrentUrl()).toContain("https://yandex.by/video"); 
+});
 }
 
 

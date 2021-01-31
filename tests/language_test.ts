@@ -3,7 +3,7 @@ import { HomePage } from "../pages/homepage";
 import { LanguagePage } from "../pages/languagepage";
 import {URL} from '../utils/constants';
 
-     describe('Yandex2', () => {
+     describe('Yandex - language switch language', () => {
     it('Click login button', async () => {
     await browser.get(URL);
     await HomePage.ClickOnLangButton ();

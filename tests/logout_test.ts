@@ -6,7 +6,7 @@ import {URL} from '../utils/constants';
 import { Functions } from "../pages/functions";
 
  
-describe('Yandex3', () => {
+describe('Yandex - Яндекс почта - логаут', () => {
     it('Click login button', async () => {
     await browser.get(URL);
     await HomePage.ClickOnLoginButton ();
