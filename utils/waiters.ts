@@ -24,6 +24,13 @@ export class Waiters {
 		await this.waitForClickable(element);
 		await this.clickElementAction(element);
 	  }
+
+	  async focusElement(element: ElementFinder) {
+		await browser
+		  .actions()
+		  .mouseDown(element)
+		  .perform();
+	  }
 }
 export const waiters = new Waiters();
 
