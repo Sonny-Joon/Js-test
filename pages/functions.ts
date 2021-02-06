@@ -20,9 +20,9 @@ async allureStep(stepDefinition: string, method: any): Promise<void> {
 
 async openNewTab (): Promise<void> {
   await this.allureStep ("openNewTab", async () => {
-  browser.getAllWindowHandles().then(function(handles) {
-          let newWindowHandle = handles[1];
-          browser.switchTo().window(newWindowHandle)     });
+  let handles = await browser.getAllWindowHandles();
+  let newWindowHandle = handles[1];
+          browser.switchTo().window(newWindowHandle)   
         });
   }
 
