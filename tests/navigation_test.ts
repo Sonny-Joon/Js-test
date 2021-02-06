@@ -13,7 +13,7 @@ let goBackToPreviousTab = function() {
         browser.driver.close();	
         browser.driver.switchTo().window(handles[0])    });	
     }
-    describe('Yandex5', () => {
+    describe('Yandex - Яндекс - навигация', () => {
       it('Click login button', async () => {
       await browser.get(URL);
       await HomePage.ClickOnVideoButton ();

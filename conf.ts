@@ -15,7 +15,7 @@ exports.config = {
     }
     }],
     specs: [
-        "tests/navigation_test.js",
+        "tests/fail_login_test.js",
     ],
  
     onPrepare: function () {
@@ -25,14 +25,5 @@ var allureReporter = new AllureReporter({
   resultsDir: 'allure-results'
 });
         jasmine.getEnv().addReporter(allureReporter);
-        jasmine.getEnv().afterEach(function(done){
-          browser.takeScreenshot().then(function (png) {
-            allure.createAttachment('Screenshot', function () {
-              return new Buffer(png, 'base64')
-            }, 'image/png')();
-            done();
-          })
-        });
-  
-      }
+        }
     };
