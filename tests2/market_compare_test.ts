@@ -13,16 +13,14 @@ describe('Yandex - Яндекс маркет - добавление в срав�
      await Functions.openNewTab ();
      await MarketPage.inputInSearchField ();
      await MarketPage.ClickOnSearchButton ();
+     await browser.wait(EC.presenceOf(MarketPage.ProductName3), 10000);
      const productName1 = await MarketPage.ProductName.get(0).getText();
-     console.log ("имя:",productName1);
      const productName2 = await MarketPage.ProductName.get(1).getText();
-     console.log ("имя:",productName2);
      await MarketPage.addProductToCompare (0);
      await MarketPage.addProductToCompare (1);
      await MarketPage.ClickOnCompareButton ();
-     await MarketPage.getProductInCompareName (0);
-     await MarketPage.getProductInCompareName (1);
-       await browser.wait(EC.presenceOf(MarketPage.SearchButton), 10000);
+     expect(await MarketPage.ProductInCompareName.get(0).getText()).toEqual(productName1);
+     expect(await MarketPage.ProductInCompareName.get(1).getText()).toEqual(productName2);
       })
       afterAll (() =>      {
       browser.close
