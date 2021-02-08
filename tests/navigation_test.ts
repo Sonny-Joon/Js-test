@@ -39,7 +39,7 @@ import { Functions } from "../pages/functions";
       await HomePage.ClickOnMusicButton ();
       await Functions.openNewTab ();
       expect(await browser.getCurrentUrl()).toContain('https://music.yandex.by/')
-      })
+      }, 120000)
 
         afterAll (() =>      {
           browser.close
