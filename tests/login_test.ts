@@ -6,18 +6,20 @@ import {URL} from '../utils/constants';
 import { Functions } from "../pages/functions";
 
 describe('Yandex - Логин на яндекс почту', () => {
-    it('Click login button', async () => {
+    it('Success login', async () => {
      await browser.get(URL);
      await HomePage.ClickOnLoginButton ();
      await Functions.openNewTab ();
-      await LoginPage.inputInLoginField ();
-      await LoginPage.ClickOnSubmitButton ();
-      await LoginPage.inputInPassField ();
-      await LoginPage.ClickOnSubmitButton ();
-      await AccountPage.CheckUserName ();
+     await LoginPage.inputInLoginField ();
+     await LoginPage.ClickOnSubmitButton ();
+     await LoginPage.inputInPassField ();
+     await LoginPage.ClickOnSubmitButton ();
+     await AccountPage.CheckUserName ();
+     await AccountPage.ClickOnAvatarButton ();
+     await AccountPage.ClickLogOutButton ();
       })
       afterAll (() =>      {
-      browser.close
+        browser.close
        })
                 });
 

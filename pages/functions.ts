@@ -21,17 +21,17 @@ async allureStep(stepDefinition: string, method: any): Promise<void> {
 async openNewTab (): Promise<void> {
   await this.allureStep ("openNewTab", async () => {
   let handles = await browser.getAllWindowHandles();
-  let newWindowHandle = handles[1];
+  let newWindowHandle = handles[handles.length-1];
           browser.switchTo().window(newWindowHandle)   
         });
   }
 
   async goBackToPreviousTab(): Promise<void> {
     await this.allureStep ("goBackToPreviousTab", async () => {
-    browser.getAllWindowHandles().then(function (handles) {
-        browser.driver.switchTo().window(handles[1]);
-        browser.driver.close();
-        browser.driver.switchTo().window(handles[0]);
+    browser.getAllWindowHandles().then((handles) => {
+    browser.driver.switchTo().window(handles[1]);
+    browser.driver.close();
+    browser.driver.switchTo().window(handles[0]);
     });
   });
 }

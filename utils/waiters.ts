@@ -9,15 +9,12 @@ export async function waitForElementVisible(elementFinder: ElementFinder, timeou
 export class Waiters {
 	
 	async clickElementAction(element: ElementFinder) {
-		await browser
-		  .actions()
-		  .click(element)
-		  .perform();
-	  }
+		await element.click();    
+	  	  }
 
 	async waitForClickable(element: ElementFinder) {
 		const EC = protractor.ExpectedConditions;
-			await browser.wait(EC.elementToBeClickable(element), 5000);
+			await browser.wait(EC.elementToBeClickable(element), 10000);
 	  }
 
 	  async waitAndClick(element: ElementFinder): Promise<void>{
@@ -25,11 +22,9 @@ export class Waiters {
 		await this.clickElementAction(element);
 	  }
 
-	  async focusElement(element: ElementFinder) {
-		await browser
-		  .actions()
-		  .mouseDown(element)
-		  .perform();
+	  async sendTextAction(element: ElementFinder, value: string) {
+		await element.clear();
+		await element.sendKeys(value);
 	  }
 }
 export const waiters = new Waiters();

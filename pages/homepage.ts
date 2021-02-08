@@ -21,6 +21,7 @@ export class HomePageObject {
   MusicButton = element(by.css ("[data-id='music']"));
   LangButton = element(by.css (".b-langs"));
   LangMoreButton = element(by.css ('[data-statlog="head.lang.more"]'));
+  MoreButton = element(by.css("[data-statlog='services_new.more']"));
   
   async ClickOnLoginButton(): Promise<void> {
     await Functions.allureStep ("ClickOnLoginButton", async () => {
@@ -92,6 +93,12 @@ async CheckVideoPage(): Promise<void> {
   await Functions.allureStep ("CheckVideoPage", async () => {
   expect(await browser.getCurrentUrl()).toContain("https://yandex.by/video"); 
 });
+}
+
+async ClickOnMoreButton(): Promise<void> {
+  await Functions.allureStep ("ClickOnMoreButton", async () => {
+    await waiters.waitAndClick(this.MoreButton);
+   });
 }
 
 

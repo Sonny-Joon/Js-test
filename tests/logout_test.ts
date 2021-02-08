@@ -7,19 +7,19 @@ import { Functions } from "../pages/functions";
 
  
 describe('Yandex - Яндекс почта - логаут', () => {
-    it('Click login button', async () => {
+    it('Success logout', async () => {
     await browser.get(URL);
     await HomePage.ClickOnLoginButton ();
     await Functions.openNewTab ();
-      await LoginPage.inputInLoginField ();
-      await LoginPage.ClickOnSubmitButton ();
-      await LoginPage.inputInPassField ();
-      await LoginPage.ClickOnSubmitButton ();
-      await AccountPage.ClickOnAvatarButton ();
-      await AccountPage.ClickLogOutButton ();
-      await HomePage.CheckLogOut ();
+    await LoginPage.inputInLoginField ();
+    await LoginPage.ClickOnSubmitButton ();
+    await LoginPage.inputInPassField ();
+    await LoginPage.ClickOnSubmitButton ();
+    await AccountPage.ClickOnAvatarButton ();
+    await AccountPage.ClickLogOutButton ();
+    await HomePage.CheckLogOut ();
       afterAll (() =>      {
-      browser.close
+        browser.close
        })
        
          });
