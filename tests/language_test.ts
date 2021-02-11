@@ -15,7 +15,7 @@ import {URL} from '../utils/constants';
     expect(await LanguagePage.checkUkrLang()).toEqual("Ukr"); 
                      })
       afterAll (() =>      {
-        browser.close
+        browser.refresh
        })
        
          });

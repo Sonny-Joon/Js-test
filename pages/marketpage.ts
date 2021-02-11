@@ -16,7 +16,11 @@ export class MarketPageObject {
     DeleteCompareElement = element(by.css('[data-apiary-widget-name="@MarketNode/CompareEmpty"]'));
     ElectronicButton = element(by.css('._3z8GfB4w3a'));
     AdvertSkip = element(by.css('._1LRo65x8Fi'));
-    CameraButton = element(by.css('Смартфоны'));
+    CameraButton = element(by.css('a[href*="ekshn"]'));
+    CameraButton2 = element(by.css('._1YdrMWBuYy'))
+    SortPriceButton = element(by.css('[data-autotest-id="dprice"]'));
+    SortPriceButton2 = element(by.css('[data-autotest-id="aprice"]'));
+  
 
     async inputInSearchField(): Promise<void> {
         await Functions.allureStep ("inputInSearchField", async () => {
@@ -66,6 +70,24 @@ async AdvertSkipClick(): Promise<void> {
 async ClickOnCamerasButton(): Promise<void> {
   await Functions.allureStep ("ClickOnCamerasButton", async () => {
   await waiters.waitAndClick(this.CameraButton);
+});
+}
+
+async ClickOnSortButton(): Promise<void> {
+  await Functions.allureStep ("ClickOnSortButton", async () => {
+  await waiters.waitAndClick(this.SortPriceButton);
+});
+}
+
+async ClickOnCameras2Button(): Promise<void> {
+  await Functions.allureStep ("ClickOnCameras2Button", async () => {
+  await waiters.waitAndClick(this.CameraButton2);
+});
+}
+
+async ClickOnSort2Button(): Promise<void> {
+  await Functions.allureStep ("ClickOnSort2Button", async () => {
+  await waiters.waitAndClick(this.SortPriceButton2);
 });
 }
 

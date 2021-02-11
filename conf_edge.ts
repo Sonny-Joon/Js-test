@@ -10,7 +10,7 @@ exports.config = {
       'browserName': 'MicrosoftEdge',
     }],
     specs: [
-        "tests/fail_login_test.js",
+        "tests/navigation_test.js",
     ],
     
  

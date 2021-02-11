@@ -13,9 +13,9 @@ describe('Yandex - Яндекс почта - невалидный логин', (
      await LoginPage.ClickOnSubmitButton ();
      await LoginPage.CheckErrorMessage ();
       })
-            afterAll (() =>      {
-                  browser.close
-       })
+      afterAll (async () =>      {
+            await browser.refresh
+           })
        
          });
 

@@ -17,6 +17,10 @@ describe('Yandex - Яндекс маркет - сортировка по цен�
      await MarketPage. AdvertSkipClick();
      await MarketPage.ClickOnElectronicButton ();
      await MarketPage.ClickOnCamerasButton ();
+     await MarketPage.ClickOnCameras2Button ();
+     await MarketPage.ClickOnSortButton();
+     await MarketPage.ClickOnSort2Button();
+     //добавтиь проверку которую возьмет в массиве ценики и проверит что 0>1, 1>2 и т.п.
       })
       afterAll (() =>      {
       browser.close
