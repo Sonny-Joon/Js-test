@@ -45,8 +45,8 @@ export class LoginPageObject {
   });
 }
 
-async CheckInvalidPassMessage(): Promise<void> {
-  await Functions.allureStep ("CheckInvalidPassMessage", async () => {
+async CheckErrorMessage(): Promise<void> {
+  await Functions.allureStep ("CheckErrorMessage", async () => {
   await browser.wait(EC.presenceOf(this.ErrorMessage), 10000);
   expect(this.ErrorMessage.isDisplayed());
 });

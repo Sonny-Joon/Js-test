@@ -5,18 +5,18 @@ import {URL} from '../utils/constants';
 import { Functions } from "../pages/functions";
 
 describe('Yandex - Яндекс почта - невалидный пароль', () => {
-    it('Click login button', async () => {
-     await browser.get(URL);
+    it('Invalid pass', async () => {
+      await browser.get(URL);
      await HomePage.ClickOnLoginButton ();
      await Functions.openNewTab ();
      await LoginPage.inputInLoginField ();
      await LoginPage.ClickOnSubmitButton ();
      await LoginPage.FailinputInPassField ();
      await LoginPage.ClickOnSubmitButton ();
-     await LoginPage.CheckInvalidPassMessage ();
+     await LoginPage.CheckErrorMessage ();
       })
             afterAll (() =>      {
-      browser.close
+                  browser.close
        })
        
          });
