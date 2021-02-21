@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    tools {nodejs "NodeJS 14"}
     environment {
                 CHROME_LOGS = '/var/jenkins_home/jobs/ProtractorTests2/workspace/chromeLogs/'
                 ALLURE_REPORT = '/var/jenkins_home/jobs/ProtractorTests2/workspace/allure-report/'
