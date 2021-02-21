@@ -1,9 +1,9 @@
 pipeline {
-    agent any
+    agent
     environment {
                 CHROME_LOGS = '/var/jenkins_home/jobs/ProtractorTests2/workspace/chromeLogs/'
-                ALLURE_REPORT = '/var/jenkins_home/jobs/ProtractorTests2/workspace/allure-report/'
-                ALLURE_RESULTS = '/var/jenkins_home/jobs/ProtractorTests2/workspace/allure-results/'
+                ALLURE_REPORT = 'C:/Users/anduser/.jenkins/workspace/ProtractorTests2/allure-report/'
+                ALLURE_RESULTS = 'C:/Users/anduser/.jenkins/workspace/ProtractorTests2/allure-results/'
                 JENKINS_BUILD_RESULT = '/var/jenkins_home/jobs/ProtractorTests2/workspace/jenkinsBuildResult.json'
             }
     stages {
