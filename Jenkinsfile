@@ -9,8 +9,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
-                sh 'npm webdriver-manager update'
+                bat 'npm install'
+                bat 'npm webdriver-manager update'
             }
         }
       
