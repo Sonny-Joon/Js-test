@@ -20,6 +20,8 @@ export class MarketPageObject {
     CameraButton2 = element(by.css('._1YdrMWBuYy'))
     SortPriceButton = element(by.css('[data-autotest-id="dprice"]'));
     SortPriceButton2 = element(by.css('[data-autotest-id="aprice"]'));
+    cost= element.all(by.css('23fad448'));
+    cost2= element(by.css('23fad448'));
   
 
     async inputInSearchField(): Promise<void> {

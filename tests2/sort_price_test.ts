@@ -20,6 +20,9 @@ describe('Yandex - Яндекс маркет - сортировка по цен�
      await MarketPage.ClickOnCameras2Button ();
      await MarketPage.ClickOnSortButton();
      await MarketPage.ClickOnSort2Button();
+     await browser.wait(EC.presenceOf(MarketPage.cost2), 10000);
+     const productCost = await MarketPage.cost.getText();
+     console.log ("цены:",productCost)
      //добавтиь проверку которую возьмет в массиве ценики и проверит что 0>1, 1>2 и т.п.
       })
       afterAll (() =>      {

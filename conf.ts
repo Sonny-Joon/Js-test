@@ -9,7 +9,7 @@ multiCapabilities: [{
    chromeOptions: {
    'args': ['start-maximized'],
    }}],
-    specs: ["tests2/sort_price_test.js"],
+    specs: ["tests2/music_test.js"],
  
 onPrepare: function () {
   beforeEach(function(){ browser.waitForAngularEnabled(false);});
