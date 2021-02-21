@@ -7,14 +7,6 @@ pipeline {
                 JENKINS_BUILD_RESULT = '/var/jenkins_home/jobs/ProtractorTests2/workspace/jenkinsBuildResult.json'
             }
     stages {
-        stage('Clear tmp Data') {
-            steps {
-                sh 'rm -Rf "${CHROME_LOGS}"*'
-                sh 'rm -Rf "${ALLURE_REPORT}"*'
-                sh 'rm -Rf "${ALLURE_RESULTS}"*'
-                sh 'rm -Rf "${JENKINS_BUILD_RESULT}"*'
-            }
-        }
         stage('Build') {
             steps {
                 sh 'npm install'
