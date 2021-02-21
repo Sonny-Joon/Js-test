@@ -17,7 +17,7 @@ pipeline {
         stage('Test') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    sh "npm test"
+                    bat "npm test"
                 }
             }
         }
