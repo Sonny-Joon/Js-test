@@ -7,13 +7,7 @@ pipeline {
                 JENKINS_BUILD_RESULT = '/var/jenkins_home/jobs/ProtractorTests2/workspace/jenkinsBuildResult.json'
             }
     stages {
-        stage('Clear tmp Data') {
-            steps {
-                bat 'rm -Rf "${ALLURE_REPORT}"*'
-                bat 'rm -Rf "${ALLURE_RESULTS}"*'
-            }
-        }
-        stage('Build') {
+               stage('Build') {
             steps {
                 bat 'npm install'
             }
