@@ -1,5 +1,5 @@
 pipeline {
-    agent
+    agent any
     environment {
                 CHROME_LOGS = '/var/jenkins_home/jobs/ProtractorTests2/workspace/chromeLogs/'
                 ALLURE_REPORT = 'C:/Users/anduser/.jenkins/workspace/ProtractorTests2/allure-report/'
